@@ -9,7 +9,7 @@ Parser::Parser(QWidget *parent)
 {
     ui->setupUi(this);
     connect (ui->b_Search, &QPushButton::clicked, this, &Parser::addedStorage);
-    connect (ui->l_Proc, &QLineEdit::textChanged, this, &Parser::addedStorage);
+    ui->l_Proc->setReadOnly(1);
 }
 
 Parser::~Parser()
@@ -32,7 +32,7 @@ void Parser::addedStorage()
     QStringList outputList = output.split("\n");
     foreach (QString proc, outputList)
         if(proc.contains("Hardware")){
-            ui->l_Proc->setText(proc);
+            ui->l_Proc->setText(proc.remove(0, proc.indexOf(":")+1));
             break;
         }
         else
