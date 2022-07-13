@@ -21,9 +21,12 @@ private slots:
     void ProcessParameters(QStringList outputList);
     QStringList Ram();
     void RamParameters(QStringList outputList);
+    QStringList Other();
+    void OtherParameters(QStringList outputList);
 
 
 private:
     Ui::Parser *ui;
+    int cores = 0;
 };
 #endif // PARSER_H

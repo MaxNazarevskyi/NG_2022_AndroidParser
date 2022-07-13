@@ -10,13 +10,16 @@ Parser::Parser(QWidget *parent)
     ui->setupUi(this);
     connect (ui->b_SearchProc, &QPushButton::clicked, this, &Parser::Processor);
     connect (ui->b_SearchRam, &QPushButton::clicked, this, &Parser::Ram);
+    connect (ui->b_SearchOther, &QPushButton::clicked, this, &Parser::Other);
     ui->l_ProcName->setReadOnly(1);
     ui->l_ProcBM->setReadOnly(1);
     ui->l_ProcHardware->setReadOnly(1);
     ui->l_ProcRevision->setReadOnly(1);
+    ui->l_ProcCores->setReadOnly(1);
     ui->l_RamTotal->setReadOnly(1);
     ui->l_RamFree->setReadOnly(1);
     ui->l_RamAvailable->setReadOnly(1);
+    ui->l_OtherRes->setReadOnly(1);
 }
 
 Parser::~Parser()
@@ -46,6 +49,10 @@ void Parser::ProcessParameters(QStringList outputList)
     ui->l_ProcHardware->setText(" Unknown");    //set default
     ui->l_ProcName->setText(" Unknown");
     foreach (QString nameProc, outputList){
+        if(nameProc.contains("processor")){
+            cores++;
+            ui->l_ProcCores->setText(" " + QString::number(cores));
+        }
         if(nameProc.contains("model name"))
             ui->l_ProcName->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
 
@@ -88,5 +95,30 @@ void Parser::RamParameters(QStringList outputList)
 
         if(mem.contains("MemAvailable"))
             ui->l_RamAvailable->setText(mem.remove(0, mem.indexOf(":")+4));
+    }
+}
+
+QStringList Parser::Other()
+{
+    QProcess Proc(this);
+    QStringList parameters;
+    Proc.setWorkingDirectory("D:/platform-tools");
+    Proc.setProgram("powershell");
+    parameters << "./adb" << "devices" << ";"
+         << "./adb" << "shell" << "wm" << "size";
+    Proc.setArguments(parameters);
+    Proc.start();
+    Proc.waitForFinished();
+    QString output (Proc.readAllStandardOutput());
+    QStringList outputList = output.split("\n");
+    OtherParameters(outputList);
+    return outputList;
+}
+
+void Parser::OtherParameters(QStringList outputList)
+{
+    foreach (QString res, outputList){
+        if(res.contains("Physical size"))
+            ui->l_OtherRes->setText(res.remove(0, res.indexOf(":")+1));
     }
 }
