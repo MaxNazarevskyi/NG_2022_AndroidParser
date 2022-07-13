@@ -2,8 +2,8 @@
 #define PARSER_H
 
 #include <QMainWindow>
-#include <QFileSystemWatcher>
-#include <QFileDialog>
+#include <QProcess>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Parser; }
@@ -17,11 +17,13 @@ public:
     Parser(QWidget *parent = nullptr);
     ~Parser();
 private slots:
-    void addedStorage();
+    QStringList Processor();
+    void ProcessParameters(QStringList outputList);
+    QStringList Ram();
+    void RamParameters(QStringList outputList);
+
 
 private:
     Ui::Parser *ui;
-    QStringList system_info;
-    QString output;
 };
 #endif // PARSER_H
