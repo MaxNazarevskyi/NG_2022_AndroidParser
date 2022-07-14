@@ -17,79 +17,212 @@
    <layout class="QFormLayout" name="formLayout">
     <item row="0" column="0" colspan="2">
      <widget class="QTabWidget" name="tabWidget">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>13660</width>
+        <height>7680</height>
+       </size>
+      </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="Processor">
        <attribute name="title">
         <string>Processor</string>
        </attribute>
-       <widget class="QWidget" name="layoutWidget">
+       <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>10</y>
-          <width>271</width>
-          <height>166</height>
+          <y>0</y>
+          <width>830</width>
+          <height>550</height>
          </rect>
         </property>
-        <layout class="QGridLayout" name="gridLayout">
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_5">
-           <property name="text">
-            <string>Hardware</string>
+        <layout class="QGridLayout" name="gridLayout_7">
+         <item row="0" column="0" colspan="2">
+          <layout class="QGridLayout" name="gridLayout_3">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMaximumSize</enum>
            </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QLineEdit" name="l_ProcRevision"/>
-         </item>
-         <item row="5" column="1">
-          <widget class="QPushButton" name="b_SearchProc">
-           <property name="text">
-            <string>Search</string>
+           <property name="horizontalSpacing">
+            <number>0</number>
            </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="l_ProcHardware"/>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_2">
-           <property name="text">
-            <string>BogoMIPS</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="l_ProcName"/>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Model name</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="label_4">
-           <property name="text">
-            <string>Revision</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="l_ProcBM"/>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="l_ProcCores"/>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="label_6">
-           <property name="text">
-            <string>Cores</string>
-           </property>
-          </widget>
+           <item row="1" column="1">
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="7" column="1">
+              <widget class="QLineEdit" name="l_ProcPart"/>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="l_ProcRevision"/>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="l_ProcName"/>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="l_ProcHardware"/>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>Cores</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="l_ProcCores"/>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLineEdit" name="l_ProcArch"/>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_7">
+               <property name="text">
+                <string>Architecture</string>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLineEdit" name="l_ProcVariant"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>Hardware</string>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="1">
+              <widget class="QPushButton" name="b_SearchProc">
+               <property name="minimumSize">
+                <size>
+                 <width>683</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>1366</width>
+                 <height>768</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Search</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>Model name</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_2">
+               <property name="text">
+                <string>BogoMIPS</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>Revision</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="l_ProcBM"/>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>Variant</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="1">
+              <widget class="QLineEdit" name="l_ProcImp"/>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string>Part</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="0">
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>Implementer</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>168</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>168</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>58</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="1">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>4</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
@@ -98,52 +231,268 @@
        <attribute name="title">
         <string>RAM</string>
        </attribute>
-       <widget class="QWidget" name="layoutWidget_6">
+       <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>205</width>
-          <height>110</height>
+          <x>50</x>
+          <y>20</y>
+          <width>621</width>
+          <height>618</height>
          </rect>
         </property>
-        <layout class="QGridLayout" name="gridLayout_4">
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_17">
-           <property name="text">
-            <string>Free</string>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="1" column="1">
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_11">
+             <property name="text">
+              <string>Buffers</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLineEdit" name="l_RamSwapF"/>
+           </item>
+           <item row="6" column="3">
+            <widget class="QLineEdit" name="l_RamMapped"/>
+           </item>
+           <item row="4" column="3">
+            <widget class="QLineEdit" name="l_RamSRec"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Available</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="l_RamAvailable"/>
+           </item>
+           <item row="6" column="2">
+            <widget class="QLabel" name="label_23">
+             <property name="text">
+              <string>Mapped</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLabel" name="label_24">
+             <property name="text">
+              <string>Slab</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_16">
+             <property name="text">
+              <string>Total</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>Cached</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLineEdit" name="l_RamSwapT"/>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Inactive</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QLineEdit" name="l_RamSUnreclaim"/>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLineEdit" name="l_RamSlab"/>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLineEdit" name="l_RamInactive"/>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLineEdit" name="l_RamSwapC"/>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_28">
+             <property name="text">
+              <string>Active</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_15">
+             <property name="text">
+              <string>SwapTotal</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="l_RamBuffers"/>
+           </item>
+           <item row="5" column="2">
+            <widget class="QLabel" name="label_22">
+             <property name="text">
+              <string>SUnreclaim</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLabel" name="label_25">
+             <property name="text">
+              <string>SReclaimable</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QLineEdit" name="l_RamMlocked"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_17">
+             <property name="text">
+              <string>Free</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="l_RamTotal"/>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>SwapFree</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLineEdit" name="l_RamAnon"/>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="l_RamCached"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="label_20">
+             <property name="text">
+              <string>SwapCached</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="l_RamFree"/>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>Mlocked</string>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="label_21">
+             <property name="text">
+              <string>AnonPages</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="l_RamActive"/>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLineEdit" name="l_RamUnevictable"/>
+           </item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_29">
+             <property name="text">
+              <string>Unevictable</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2">
+            <widget class="QLabel" name="label_26">
+             <property name="text">
+              <string>KernelStack</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="3">
+            <widget class="QLineEdit" name="l_RamKernelS"/>
+           </item>
+           <item row="8" column="2">
+            <widget class="QLabel" name="label_27">
+             <property name="text">
+              <string>PageTables</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="3">
+            <widget class="QLineEdit" name="l_RamPageT"/>
+           </item>
+           <item row="9" column="2" colspan="2">
+            <widget class="QPushButton" name="b_SearchRam">
+             <property name="text">
+              <string>Search</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="0" rowspan="2">
+          <spacer name="horizontalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
-          </widget>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="l_RamTotal"/>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Available</string>
+          <spacer name="verticalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
            </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_16">
-           <property name="text">
-            <string>Total</string>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
            </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="l_RamAvailable"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="l_RamFree"/>
+          </spacer>
          </item>
          <item row="3" column="1">
-          <widget class="QPushButton" name="b_SearchRam">
-           <property name="text">
-            <string>Search</string>
+          <spacer name="verticalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
            </property>
-          </widget>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="2">
+          <spacer name="horizontalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -152,32 +501,88 @@
        <attribute name="title">
         <string>Other</string>
        </attribute>
-       <widget class="QWidget" name="layoutWidget_7">
+       <widget class="QWidget" name="">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>205</width>
-          <height>110</height>
+          <x>0</x>
+          <y>-3</y>
+          <width>741</width>
+          <height>311</height>
          </rect>
         </property>
-        <layout class="QGridLayout" name="gridLayout_5">
-         <item row="1" column="1">
-          <widget class="QPushButton" name="b_SearchOther">
-           <property name="text">
-            <string>Search</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_19">
-           <property name="text">
-            <string>Resolution</string>
-           </property>
-          </widget>
-         </item>
+        <layout class="QGridLayout" name="gridLayout_2">
          <item row="0" column="1">
-          <widget class="QLineEdit" name="l_OtherRes"/>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="0">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="1">
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="1" column="1">
+            <widget class="QPushButton" name="b_SearchOther">
+             <property name="text">
+              <string>Search</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_19">
+             <property name="text">
+              <string>Resolution</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="l_OtherRes"/>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="2">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="2" column="1">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>

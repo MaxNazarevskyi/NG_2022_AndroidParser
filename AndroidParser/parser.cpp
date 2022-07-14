@@ -55,15 +55,20 @@ void Parser::ProcessParameters(QStringList outputList)
         }
         if(nameProc.contains("model name"))
             ui->l_ProcName->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-
         if(nameProc.contains("BogoMIPS"))
             ui->l_ProcBM->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-
         if(nameProc.contains("Hardware"))
             ui->l_ProcHardware->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-
         if(nameProc.contains("CPU revision"))
             ui->l_ProcRevision->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        if(nameProc.contains("CPU architecture"))
+            ui->l_ProcArch->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        if(nameProc.contains("CPU variant"))
+            ui->l_ProcVariant->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        if(nameProc.contains("CPU part"))
+            ui->l_ProcPart->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        if(nameProc.contains("CPU implementer"))
+            ui->l_ProcImp->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
     }
 }
 
@@ -88,13 +93,25 @@ void Parser::RamParameters(QStringList outputList)
 {
     foreach (QString mem, outputList){
         if(mem.contains("MemTotal"))
-            ui->l_RamTotal->setText(mem.remove(0, mem.indexOf(":")+8));
-
+            ui->l_RamTotal->setText(mem.remove(0, mem.indexOf(":")+1));
         if(mem.contains("MemFree"))
-            ui->l_RamFree->setText(mem.remove(0, mem.indexOf(":")+11));
-
+            ui->l_RamFree->setText(mem.remove(0, mem.indexOf(":")+1));
         if(mem.contains("MemAvailable"))
-            ui->l_RamAvailable->setText(mem.remove(0, mem.indexOf(":")+4));
+            ui->l_RamAvailable->setText(mem.remove(0, mem.indexOf(":")+1));
+        if(mem.contains("Buffers"))
+            ui->l_RamBuffers->setText(mem.remove(0, mem.indexOf(":")+1));
+        if(mem.contains("Cached"))
+            ui->l_RamCached->setText(mem.remove(0, mem.indexOf(":")+1));
+        if(mem.contains("Active:"))
+            ui->l_RamActive->setText(mem.remove(0, mem.indexOf(":")+1));
+        if(mem.contains("Inactive:"))
+            ui->l_RamInactive->setText(mem.remove(0, mem.indexOf(":")+1));
+        if(mem.contains("Unevictable"))
+            ui->l_RamUnevictable->setText(mem.remove(0, mem.indexOf(":")+1));
+        if(mem.contains("Mlocked"))
+            ui->l_RamMlocked->setText(mem.remove(0, mem.indexOf(":")+1));
+        if(mem.contains("SwapTotal"))
+            ui->l_RamSwapT->setText(mem.remove(0, mem.indexOf(":")+1));
     }
 }
 
