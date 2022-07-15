@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QProcess>
 #include <QDebug>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Parser; }
@@ -21,12 +22,14 @@ private slots:
     void ProcessParameters(QStringList outputList);
     QStringList Ram();
     void RamParameters(QStringList outputList);
+    void getOther();
     QStringList OtherResolution();
-    void OtherParameters(QStringList outputList);
+    QStringList OtherVersion();
 
 
 private:
     Ui::Parser *ui;
     int cores = 0;
+    QTimer* timer;
 };
 #endif // PARSER_H
