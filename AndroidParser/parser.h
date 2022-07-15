@@ -21,7 +21,7 @@ private slots:
     void ProcessParameters(QStringList outputList);
     QStringList Ram();
     void RamParameters(QStringList outputList);
-    QStringList Other();
+    QStringList OtherResolution();
     void OtherParameters(QStringList outputList);
 
 
