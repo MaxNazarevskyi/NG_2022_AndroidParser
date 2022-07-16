@@ -1,7 +1,5 @@
 #include "parser.h"
 #include "ui_parser.h"
-#include <QProcess>
-#include <QDebug>
 
 Parser::Parser(QWidget *parent)
     : QMainWindow(parent)
@@ -48,22 +46,22 @@ void Parser::ProcessParameters(QStringList outputList)
             cores++;
             ui->l_ProcCores->setText(" " + QString::number(cores));
         }
-        if(nameProc.contains("model name"))
-            ui->l_ProcName->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-        if(nameProc.contains("BogoMIPS"))
-            ui->l_ProcBM->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-        if(nameProc.contains("Hardware"))
-            ui->l_ProcHardware->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-        if(nameProc.contains("CPU revision"))
-            ui->l_ProcRevision->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-        if(nameProc.contains("CPU architecture"))
-            ui->l_ProcArch->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-        if(nameProc.contains("CPU variant"))
-            ui->l_ProcVariant->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-        if(nameProc.contains("CPU part"))
-            ui->l_ProcPart->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
-        if(nameProc.contains("CPU implementer"))
-            ui->l_ProcImp->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        else if(nameProc.contains("model name"))
+             ui->l_ProcName->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        else if(nameProc.contains("BogoMIPS"))
+             ui->l_ProcBM->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        else if(nameProc.contains("Hardware"))
+             ui->l_ProcHardware->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        else if(nameProc.contains("CPU revision"))
+             ui->l_ProcRevision->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        else if(nameProc.contains("CPU architecture"))
+             ui->l_ProcArch->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        else if(nameProc.contains("CPU variant"))
+             ui->l_ProcVariant->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        else if(nameProc.contains("CPU part"))
+             ui->l_ProcPart->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
+        else if(nameProc.contains("CPU implementer"))
+             ui->l_ProcImp->setText(nameProc.remove(0, nameProc.indexOf(":")+1));
     }
 }
 
@@ -167,11 +165,32 @@ QStringList Parser::OtherVersion()
 
 void Parser::getOther()
 {
-    QStringList params = OtherVersion()+OtherResolution();
+    QStringList params = OtherVersion()+OtherResolution()+OtherStorage();
     foreach (QString other, params){
         if(other.contains("Physical size"))
             ui->l_OtherRes->setText(other.remove(0, other.indexOf(":")+1));
-        if(other.contains("Linux version"))
+        else if(other.contains("Linux version"))
             ui->l_OtherVersion->setText(other.left(other.indexOf("+")).remove(0,13));
     }
+}
+
+QStringList Parser::OtherStorage()
+{
+    QProcess Proc(this);
+    QStringList parameters;
+    Proc.setWorkingDirectory("D:/platform-tools");
+    Proc.setProgram("powershell");
+    parameters << "./adb" << "devices" << ";"
+         << "./adb" << "shell" << "df" << "-h" << "/data";
+    Proc.setArguments(parameters);
+    Proc.start();
+    Proc.waitForFinished();
+    QString output (Proc.readAllStandardOutput());
+    QStringList outputList = output.split(" ");
+    ui->l_StorageSize->setText(outputList[22]);
+    ui->l_StorageUsed->setText(outputList[24]);
+    ui->l_StorageAvailable->setText(outputList[26]);
+    ui->l_StorageUse->setText(outputList[28]);
+    return outputList;
+
 }

@@ -25,8 +25,7 @@ private slots:
     void getOther();
     QStringList OtherResolution();
     QStringList OtherVersion();
-
-
+    QStringList OtherStorage();
 private:
     Ui::Parser *ui;
     int cores = 0;
