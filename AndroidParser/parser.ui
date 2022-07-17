@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Parser</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>:/Icons/160138.png</normalon>
+   </iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 238, 155);
@@ -37,7 +42,7 @@ background-color: rgb(239, 239, 239);</string>
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Processor">
        <attribute name="title">
@@ -833,6 +838,9 @@ background-color: rgb(239, 239, 239);</string>
                 <height>22</height>
                </size>
               </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item row="5" column="0">
@@ -883,6 +891,13 @@ background-color: rgb(239, 239, 239);</string>
           </item>
           <item row="1" column="1">
            <layout class="QGridLayout" name="gridLayout_5">
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_19">
+              <property name="text">
+               <string>Resolution</string>
+              </property>
+             </widget>
+            </item>
             <item row="3" column="0">
              <widget class="QLabel" name="label_30">
               <property name="text">
@@ -890,10 +905,10 @@ background-color: rgb(239, 239, 239);</string>
               </property>
              </widget>
             </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_19">
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_33">
               <property name="text">
-               <string>Resolution</string>
+               <string>Android version</string>
               </property>
              </widget>
             </item>
@@ -905,7 +920,28 @@ background-color: rgb(239, 239, 239);</string>
              </widget>
             </item>
             <item row="3" column="2">
-             <widget class="QLineEdit" name="l_OtherVersion">
+             <widget class="QLineEdit" name="l_OtherLinuxV">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QLineEdit" name="l_OtherAndroidV">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_34">
+              <property name="text">
+               <string>Serial number</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="2">
+             <widget class="QLineEdit" name="l_OtherSNum">
               <property name="readOnly">
                <bool>true</bool>
               </property>

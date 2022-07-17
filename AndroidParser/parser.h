@@ -24,8 +24,10 @@ private slots:
     void RamParameters(QStringList outputList);
     void getOther();
     QStringList OtherResolution();
-    QStringList OtherVersion();
+    QStringList OtherLinuxVersion();
     QStringList OtherStorage();
+    void OtherAndroidVersion();
+    QStringList OtherSerialNumber();
 private:
     Ui::Parser *ui;
     int cores = 0;

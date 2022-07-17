@@ -147,14 +147,13 @@ QStringList Parser::OtherResolution()
     return outputList;
 }
 
-QStringList Parser::OtherVersion()
+QStringList Parser::OtherLinuxVersion()
 {
     QProcess Proc(this);
     QStringList parameters;
     Proc.setWorkingDirectory("D:/platform-tools");
     Proc.setProgram("powershell");
-    parameters << "./adb" << "devices" << ";"
-         << "./adb" << "shell" << "cat" << "/proc/version";
+    parameters << "./adb" << "shell" << "cat" << "/proc/version";
     Proc.setArguments(parameters);
     Proc.start();
     Proc.waitForFinished();
@@ -163,15 +162,33 @@ QStringList Parser::OtherVersion()
     return outputList;
 }
 
-void Parser::getOther()
+void Parser::OtherAndroidVersion()
 {
-    QStringList params = OtherVersion()+OtherResolution()+OtherStorage();
-    foreach (QString other, params){
-        if(other.contains("Physical size"))
-            ui->l_OtherRes->setText(other.remove(0, other.indexOf(":")+1));
-        else if(other.contains("Linux version"))
-            ui->l_OtherVersion->setText(other.left(other.indexOf("+")).remove(0,13));
-    }
+    QProcess Proc(this);
+    QStringList parameters;
+    Proc.setWorkingDirectory("D:/platform-tools");
+    Proc.setProgram("powershell");
+    parameters << "./adb" << "shell" << "getprop" << "ro.build.version.release";
+    Proc.setArguments(parameters);
+    Proc.start();
+    Proc.waitForFinished();
+    QString output (Proc.readAllStandardOutput());
+    ui->l_OtherAndroidV->setText(output);
+}
+
+QStringList Parser::OtherSerialNumber()
+{
+    QProcess Proc(this);
+    QStringList parameters;
+    Proc.setWorkingDirectory("D:/platform-tools");
+    Proc.setProgram("powershell");
+    parameters << "./adb" << "devices";
+    Proc.setArguments(parameters);
+    Proc.start();
+    Proc.waitForFinished();
+    QString output (Proc.readAllStandardOutput());
+    QStringList outputList = output.split("\n");
+    return outputList;
 }
 
 QStringList Parser::OtherStorage()
@@ -186,11 +203,26 @@ QStringList Parser::OtherStorage()
     Proc.start();
     Proc.waitForFinished();
     QString output (Proc.readAllStandardOutput());
-    QStringList outputList = output.split(" ");
-    ui->l_StorageSize->setText(outputList[22]);
-    ui->l_StorageUsed->setText(outputList[24]);
-    ui->l_StorageAvailable->setText(outputList[26]);
-    ui->l_StorageUse->setText(outputList[28]);
+    QStringList outputList = output.split("\r\n");
+    output = outputList[4].replace("   "," ").replace("  "," ");
+    outputList = output.split(" ");
+    ui->l_StorageSize->setText(outputList[1]);
+    ui->l_StorageUsed->setText(outputList[2]);
+    ui->l_StorageAvailable->setText(outputList[3]);
+    ui->l_StorageUse->setText(outputList[4]);
     return outputList;
+}
 
+void Parser::getOther()
+{
+    OtherAndroidVersion();
+    QStringList params = OtherLinuxVersion()+OtherResolution()+OtherStorage()+OtherSerialNumber();
+    foreach (QString other, params){
+        if(other.contains("Physical size"))
+            ui->l_OtherRes->setText(other.remove(0, other.indexOf(":")+1));
+        else if(other.contains("Linux version"))
+            ui->l_OtherLinuxV->setText(other.left(other.indexOf("+")).remove(0,13));
+        else if(other.contains("device"))
+            ui->l_OtherSNum->setText(other.remove(other.indexOf("\t"), other.indexOf("d")));
+    }
 }
